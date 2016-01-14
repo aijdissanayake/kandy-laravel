@@ -52,8 +52,6 @@ class KandylaravelServiceProvider extends ServiceProvider
 
         $this->publishMigrations();
 
-        $this->publishSeeds();
-
         $this->publishPackage();
     }
 
@@ -73,15 +71,6 @@ class KandylaravelServiceProvider extends ServiceProvider
         $this->publishes([
             __DIR__.'/database/migrations/' => database_path('migrations')
         ], 'migrations');
-    }
-
-    /**
-     * Auto publish migrations when update core
-     */
-    public function publishSeeds(){
-        $this->publishes([
-            __DIR__.'/database/seeds/' => database_path('seeds')
-        ], 'seeds');
     }
 
     /**
