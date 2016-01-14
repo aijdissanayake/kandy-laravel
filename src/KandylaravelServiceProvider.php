@@ -27,7 +27,6 @@ class KandylaravelServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        require __DIR__ . '/../vendor/autoload.php';
         include __DIR__ . '/routes.php';
         $this->app->make('Kodeplus\Kandylaravel\KandyController');
 
