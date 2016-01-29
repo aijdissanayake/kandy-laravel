@@ -1,6 +1,6 @@
 <?php
 namespace Kodeplusdev\Kandylaravel;
-
+use Request;
 /**
  * Class button that render a button object
  *
@@ -158,10 +158,20 @@ class Button extends RenderedObject
     public function videoCall($data = array())
     {
         $this->init($data);
-        $this->contents = \View::make(
-            'kandy-laravel::Button.videoCall',
-            $this->data
-        )->render();
+        if(Request::secure() == true) {
+            $this->contents = \View::make(
+                'kandy-laravel::Button.videoCall',
+                $this->data
+            )->render();
+        } else {
+            if(Kandylaravel::$flagShowHttps == false) {
+                Kandylaravel::$flagShowHttps = true;
+                $this->contents = "<p>Can not setup kandy video button. In order to use this feature, you need a secure origin, such as HTTPS</p>";
+            } else {
+                $this->contents = "";
+            }
+        }
+
         return $this;
     }
 
@@ -173,10 +183,19 @@ class Button extends RenderedObject
     public function voiceCall($data = array())
     {
         $this->init($data);
-        $this->contents = \View::make(
-            'kandy-laravel::Button.voiceCall',
-            $this->data
-        )->render();
+        if(Request::secure() == true) {
+            $this->contents = \View::make(
+                'kandy-laravel::Button.voiceCall',
+                $this->data
+            )->render();
+        } else {
+            if(Kandylaravel::$flagShowHttps == false) {
+                Kandylaravel::$flagShowHttps = true;
+                $this->contents = "<p>Can not setup kandy voice button. In order to use this feature, you need a secure origin, such as HTTPS</p>";
+            } else {
+                $this->contents = "";
+            }
+        }
 
         return $this;
     }
@@ -189,10 +208,20 @@ class Button extends RenderedObject
     public function pstnCall($data = array())
     {
         $this->init($data);
-        $this->contents = \View::make(
-            'kandy-laravel::Button.pstnCall',
-            $this->data
-        )->render();
+        if(Request::secure() == true) {
+            $this->contents = \View::make(
+                'kandy-laravel::Button.pstnCall',
+                $this->data
+            )->render();
+        } else {
+            if(Kandylaravel::$flagShowHttps == false) {
+                Kandylaravel::$flagShowHttps = true;
+                $this->contents = "<p>Can not setup kandy call button. In order to use this feature, you need a secure origin, such as HTTPS</p>";
+            } else {
+                $this->contents = "";
+            }
+        }
+
         return $this;
     }
 }

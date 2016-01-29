@@ -1,6 +1,6 @@
 <?php
 namespace Kodeplusdev\Kandylaravel;
-
+use Request;
 /**
  * Class Video that renders a video object
  *
@@ -40,6 +40,11 @@ class Video extends RenderedObject
      * @var string The html contents of the video
      */
     protected $contents;
+
+    /**
+     * @var bool
+     */
+    protected static $flagShowHttps = false;
 
     /**
      * Initialize data of widget
@@ -109,8 +114,17 @@ class Video extends RenderedObject
     public function show($data = array())
     {
         $this->init($data);
-        $this->contents = \View::make('kandy-laravel::Video.video', $this->data)
-            ->render();
+        if(Request::secure() == true) {
+            $this->contents = \View::make('kandy-laravel::Video.video', $this->data)
+                ->render();
+        } else {
+            if(Kandylaravel::$flagShowHttps == false) {
+                Kandylaravel::$flagShowHttps = true;
+                $this->contents = "<p>Can not setup kandy video call. In order to use this feature, you need a secure origin, such as HTTPS</p>";
+            } else {
+                $this->contents = "";
+            }
+        }
 
         return $this;
     }

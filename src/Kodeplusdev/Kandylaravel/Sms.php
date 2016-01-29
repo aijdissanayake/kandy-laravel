@@ -1,7 +1,7 @@
 <?php
 
 namespace Kodeplusdev\Kandylaravel;
-
+use Request;
 /**
  * Class CoBrowsing that render co browsing components
  *
