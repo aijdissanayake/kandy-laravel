@@ -1,5 +1,5 @@
 # Kandy Package for Laravel 5
-This Laravel package encapsulates Kandy’s JS SDK and Restful APIs. Kandy is a product by GENBAND (www.genband.com) that utilizes WebRTC to enable peer to peer audio and video calls and chat. SMS and PSTN calling support will be added to this package in the near future.
+This Laravel package encapsulates Kandy’s JS SDK and Restful APIs. Kandy is a product by GENBAND (www.genband.com) that utilizes WebRTC to enable peer to peer audio and video calls, chat, SMS and PSTN calling.
 
 With this package, you can enable video and audio calling between two users that are logged into your Laravel application.
 
