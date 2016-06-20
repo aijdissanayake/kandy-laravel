@@ -23,7 +23,7 @@ Home page: http://www.kandy.io/
     "laravel/framework": "5.1.*",
     "illuminate/html" : "~5.0",
     "toddish/verify": "~5",
-    "kandy-io/kandy-laravel": "2.4.2"
+    "kandy-io/kandy-laravel": "2.4.3"
     ... // Others
 },
 ```
