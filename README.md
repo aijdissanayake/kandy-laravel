@@ -330,7 +330,7 @@ KandyCoBrowsing::show(array(
   - Screen sharing can only be used over a secure connection (https).
   - Before testing it, please install this extension on chrome browser:
     https://chrome.google.com/webstore/detail/kandyio-screen-sharing/daohbhpgnnlgkipndobecbmahalalhcp
-  - This extension only works on localhost domain.
+  - This extension only works on localhost domain. Read more: https://developer.kandy.io/tutorials/javascript/screensharing
   - Finally, you test it on video call feature.
 
 ## KANDY APIs
