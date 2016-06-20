@@ -53,10 +53,12 @@ LiveChatUI.changeState = function(state){
 };
 
 var login = function(domainApiKey, userName, password, success_callback, fail_callback) {
+    console.log('login....');
     kandy.login(domainApiKey, userName, password, success_callback, fail_callback);
 };
 
 var loginSSO = function(userAccessToken, success_callback, failure, password) {
+    console.log('login SSO....');
     kandy.loginSSO(userAccessToken, success_callback, failure, password);
 };
 
@@ -95,7 +97,7 @@ var login_fail_callback = function (){
 
 var getKandyUsers = function(){
     $.ajax({
-        url:'/kandy/getFreeUser',
+        url: baseUrl + '/kandy/getFreeUser',
         type: 'GET',
         dataType: 'json',
         success: function(res){
@@ -135,7 +137,7 @@ var checkAgentOnline = function() {
     var current_status = $('#liveChat .currentStatus').val();
     if(current_full_user_id != '') {
         $.ajax({
-            url:'/kandy/checkAgentOnline',
+            url: baseUrl + '/kandy/checkAgentOnline',
             type: 'GET',
             data: {full_user_id : current_full_user_id},
             dataType: 'json',
@@ -160,7 +162,7 @@ var endChatSession = function(){
     LiveChatUI.changeState('ENDING_CHAT');
     logout();
     $.ajax({
-        url: '/kandy/endChatSession',
+        url: baseUrl + '/kandy/endChatSession',
         type: 'GET',
         success: function(data){
             console.log(data);
@@ -241,7 +243,7 @@ $(function(){
         var form = $(this);
         e.preventDefault();
         $.ajax({
-            url: form.attr('action'),
+            url: baseUrl + form.attr('action'),
             data: form.serialize(),
             type: 'POST',
             beforeSend: function(xhr) {
@@ -285,7 +287,7 @@ $(function(){
             rateData.comment = rateComment
         }
         $.ajax({
-            url: '/kandy/rateagent',
+            url: baseUrl + '/kandy/rateagent',
             data: rateData,
             type: 'POST',
             success: function (res){
