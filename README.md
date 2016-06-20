@@ -307,20 +307,20 @@ KandyCoBrowsing::show(array(
 **Kandy Live Chat**: Make a small widget to help you implement live chat, give your customers ability to chat with customer service agent.
 ```php
 {!! KandyLiveChat::show(array(
-'registerForm'  => array(
-    'email' => array(
-        'label' => 'Email *',
-        'class' => '',
+    'registerForm'  => array(
+        'email' => array(
+            'label' => 'Email *',
+            'class' => '',
+        ),
+        'name'  => array(
+            'label' => 'Name *',
+            'class' => ''
+        )
     ),
-    'name'  => array(
-        'label' => 'Name *',
-        'class' => ''
+    'agentInfo' => array(
+        'avatar'    => asset('kandy-io/kandy-laravel/assets/img/icon-helpdesk.png'),
+        'title'     => 'Support Agent',
     )
-),
-'agentInfo' => array(
-    'avatar'    => asset('kandy-io/kandy-laravel/assets/img/icon-helpdesk.png'),
-    'title'     => 'Support Agent',
-)
 )) !!}
 ```
 
