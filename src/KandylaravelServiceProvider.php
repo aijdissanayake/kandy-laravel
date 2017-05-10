@@ -179,7 +179,7 @@ class KandylaravelServiceProvider extends ServiceProvider
 
     private function registerLiveChat()
     {
-        $this->app['kandy-laravel.liveChat'] = $this->app->share(function($app)
+       $this->app->singleton('kandy-laravel.liveChat', function ($app) 
         {
             return new \Kodeplus\Kandylaravel\liveChat();
         });
@@ -187,7 +187,7 @@ class KandylaravelServiceProvider extends ServiceProvider
 
     private function registerCoBrowsing()
     {
-        $this->app['kandy-laravel.coBrowsing'] = $this->app->share(function($app)
+        $this->app->singleton('kandy-laravel.coBrowsing', function ($app)
         {
             return new \Kodeplus\Kandylaravel\CoBrowsing();
         });
@@ -195,7 +195,7 @@ class KandylaravelServiceProvider extends ServiceProvider
 
     private function registerSms()
     {
-        $this->app['kandy-laravel.sms'] = $this->app->share(function($app)
+        $this->app->singleton('kandy-laravel.sms', function ($app)
         {
             return new \Kodeplus\Kandylaravel\Sms();
         });
